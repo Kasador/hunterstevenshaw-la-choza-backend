@@ -1,4 +1,4 @@
-import Products from '../models/Products.ts'
+import Products from '../models/Products.js'
 import { Request, Response } from 'express';
 
 // https://stackoverflow.com/questions/27676884/explicitly-specifying-types-for-express-application-request-response

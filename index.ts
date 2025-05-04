@@ -1,5 +1,5 @@
-import app from './api/index.ts'
-import connectDB from './api/db/dbConfig.ts'
+import app from './api/index.js'
+import connectDB from './api/db/dbConfig.js'
 import { config } from 'dotenv'
 config()
 

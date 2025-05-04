@@ -1,8 +1,8 @@
 import express from 'express'
 const router = express.Router()
-import UsersRoute from './users.ts' 
-import ProductsRoute from './products.ts' 
-import loginRoute from './login.ts'
+import UsersRoute from './users.js' 
+import ProductsRoute from './products.js' 
+import loginRoute from './login.js'
 
 router.get('/', (req, res) => {
     res.status(200).json({

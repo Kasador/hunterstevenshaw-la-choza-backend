@@ -1,4 +1,4 @@
-import Users from '../models/Users.ts'
+import Users from '../models/Users.js'
 import { Request, Response } from 'express';
 
 // https://stackoverflow.com/questions/27676884/explicitly-specifying-types-for-express-application-request-response

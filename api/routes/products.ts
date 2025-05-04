@@ -1,6 +1,6 @@
 // const router = require('express').Router();
 import { Router } from 'express';
-import { getAllProducts } from '../controller/productsController.ts'
+import { getAllProducts } from '../controller/productsController.js'
 const router = Router();
 
 router.get('/', getAllProducts)

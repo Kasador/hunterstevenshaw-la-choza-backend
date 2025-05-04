@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon --watch ./**/*.ts --exec \"node --loader ts-node/esm index.ts\"",
-    "start": "node --loader ts-node/esm index.ts",
-    "build": "tsc"
+    "start": "node dist/index.js",
+    "build": "tsc --project tsconfig.build.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "ts-node": "^10.9.2",
     "axios": "^1.9.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",

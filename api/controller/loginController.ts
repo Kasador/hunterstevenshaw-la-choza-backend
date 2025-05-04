@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Users from '../models/Users.ts';
+import Users from '../models/Users.js';
 import jwt  from 'jsonwebtoken'
 
 // https://www.npmjs.com/package/jsonwebtoken
