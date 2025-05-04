@@ -1,9 +1,8 @@
 import Users from '../models/Users.js'
-import { Request, Response } from 'express';
 
 // https://stackoverflow.com/questions/27676884/explicitly-specifying-types-for-express-application-request-response
 // https://stackoverflow.com/questions/59664670/typescript-async-function-return-type-void-vs-promisevoid
-export const getAllUsers = async (req: Request, res: Response): Promise<void> => { // /api/users endpoint
+export const getAllUsers = async (req, res) => { // /api/users endpoint
     try {
         const data = await Users.find({}) // pull back all data from schema 
 
@@ -27,7 +26,7 @@ export const getAllUsers = async (req: Request, res: Response): Promise<void> =>
     }
 }
 
-export const getUser = async (req: Request, res: Response): Promise<void> => { // /api/users endpoint
+export const getUser = async (req, res) => { // /api/users endpoint
     try {
         const data = await Users.find({}) // pull back all data from schema 
 
@@ -52,7 +51,7 @@ export const getUser = async (req: Request, res: Response): Promise<void> => { /
 }
 
 // https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists
-export const addUser = async (req: Request, res: Response): Promise<void> => { // /api/users endpoint
+export const addUser = async (req, res) => { // /api/users endpoint
     try {
         const findAdmin = await Users.findOne({ username: 'admin' });
 
@@ -91,7 +90,7 @@ export const addUser = async (req: Request, res: Response): Promise<void> => { /
     }
 }
 
-export const removeUser = async (req: Request, res: Response): Promise<void> => { // /api/users endpoint
+export const removeUser = async (req, res) => { // /api/users endpoint
     try {
         const data = await Users.find({}) // pull back all data from schema 
 
@@ -115,7 +114,7 @@ export const removeUser = async (req: Request, res: Response): Promise<void> => 
     }
 }
 
-export const updateUser = async (req: Request, res: Response): Promise<void> => { // /api/users endpoint
+export const updateUser = async (req, res) => { // /api/users endpoint
     try {
         const data = await Users.find({}) // pull back all data from schema 
 

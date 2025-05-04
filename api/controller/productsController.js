@@ -1,9 +1,9 @@
 import Products from '../models/Products.js'
-import { Request, Response } from 'express';
+import express from 'express';
 
 // https://stackoverflow.com/questions/27676884/explicitly-specifying-types-for-express-application-request-response
 // https://stackoverflow.com/questions/59664670/typescript-async-function-return-type-void-vs-promisevoid
-export const getAllProducts = async (req: Request, res: Response): Promise<void> => { // /api/users endpoint
+export const getAllProducts = async (req, res) => { // /api/users endpoint
     try {
         const data = await Products.find({}) // pull back all data from schema 
 

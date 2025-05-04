@@ -1,15 +1,15 @@
-import { Request, Response } from 'express';
 import Users from '../models/Users.js';
 import jwt  from 'jsonwebtoken'
-
+import { config } from 'dotenv';
+config()
 // https://www.npmjs.com/package/jsonwebtoken
-export const loginUser = async (req: Request, res: Response): Promise<void> => {
+export const loginUser = async (req, res) => {
     // const { username, password } = req.body;
     // const { username, password } = req.query
     // const username = req.query.username as string;
     // const password = req.query.password as string;
 
-    const SECRET_KEY = process.env.JWT_SECRET!;
+    const SECRET_KEY = process.env.JWT_SECRET;
 
     const { username, password } = req.body;
 

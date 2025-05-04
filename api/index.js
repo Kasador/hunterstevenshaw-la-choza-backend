@@ -1,5 +1,4 @@
 import express from 'express'
-import { Request, Response } from 'express';
 import cors from 'cors'
 import router from './routes/index.js'
 import dotenv from 'dotenv'
@@ -11,7 +10,7 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (req, res) => {
     res.status(200).json({
       success: true,
       message: 'API is running...',

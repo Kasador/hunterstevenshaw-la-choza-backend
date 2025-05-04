@@ -2,16 +2,16 @@ import mongoose from 'mongoose';
 import crypto from 'crypto';
 
 // https://mongoosejs.com/docs/typescript/schemas.html
-interface IUser {
-    username: string;
-    passwordHash: string;
-    salt: string;
-    role: 'user' | 'admin';
-    setPassword(password: string): void;
-    validatePassword(password: string): boolean;
-}
+// interface IUser {
+//     username: string;
+//     passwordHash: string;
+//     salt: string;
+//     role: 'user' | 'admin';
+//     setPassword(password: string): void;
+//     validatePassword(password: string): boolean;
+// }
 
-const userSchema = new mongoose.Schema<IUser>({
+const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
@@ -34,14 +34,14 @@ const userSchema = new mongoose.Schema<IUser>({
     }
 }, { timestamps: true });
 
-userSchema.methods.setPassword = function (plainPassword: string): void {
+userSchema.methods.setPassword = function (plainPassword) {
     this.salt = crypto.randomBytes(16).toString('hex'); // randomize the password and make it hex format
     this.passwordHash = crypto // take the plain password, and then pass it through the params; salt the random password, 1000 = iterations, output len, and finally the sha512 is the hashing algorithm. 
         .pbkdf2Sync(plainPassword, this.salt, 1000, 64, 'sha512')
         .toString('hex');
 };
 
-userSchema.methods.validatePassword = function (plainPassword: string): boolean {
+userSchema.methods.validatePassword = function (plainPassword) {
     const hash = crypto
         .pbkdf2Sync(plainPassword, this.salt, 1000, 64, 'sha512')
         .toString('hex');
@@ -49,7 +49,7 @@ userSchema.methods.validatePassword = function (plainPassword: string): boolean 
 };
 
 
-const User: mongoose.Model<IUser> = mongoose.model<IUser>('User', userSchema);
+const User  = mongoose.model('User', userSchema);
 export default User;
 
 
