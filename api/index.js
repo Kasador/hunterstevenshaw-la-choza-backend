@@ -8,7 +8,10 @@ const app = express();
 
 // middlewares
 app.use(cors({
-  origin: 'https://hunterstevenshaw-la-choza.netlify.app',
+  origin: [
+    'https://hunterstevenshaw-la-choza.netlify.app',
+    'http://localhost:5173'
+  ],
   credentials: true,
 }));
 app.use(express.json())
