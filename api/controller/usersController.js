@@ -91,7 +91,7 @@ export const getUser = async (req, res) => { // GET one user by ID /:id
 
 export const addUser = async (req, res) => { // POST (create) new user
     try {
-        const { username, role, password } = req.body;
+        const { username, password } = req.body;
         const existingUser = await Users.findOne({ username });
 
         if (existingUser) {
@@ -101,7 +101,7 @@ export const addUser = async (req, res) => { // POST (create) new user
             });
         }
 
-        const newUser = new Users({ username, role }); // make a drop down, or auto make user default role as NOT admin.
+        const newUser = new Users({ username });
         newUser.setPassword(password);
         await newUser.save();
 
